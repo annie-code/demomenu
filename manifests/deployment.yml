@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "myakscluster-bd0e"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "myakscluster-bd0e"
+  template:
+    metadata:
+      labels:
+        app: "myakscluster-bd0e"
+    spec:
+      containers:
+        - name: "myakscluster-bd0e"
+          image: "azuredemocontainer.azurecr.io/myakscluster"
+          ports:
+          - containerPort: 80
